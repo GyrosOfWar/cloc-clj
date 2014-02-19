@@ -6,21 +6,15 @@ implented right now.
 
 Currently supported languages:
 
-C/C++
-
-Java
-
-Scala
-
-Clojure
-
-HTML
-
-Javascript
-
-Python
-
-Ruby
+* C/C++
+* C#
+* Java
+* Scala
+* Clojure
+* HTML
+* Javascript
+* Python
+* Ruby
 
 ## Usage
 
