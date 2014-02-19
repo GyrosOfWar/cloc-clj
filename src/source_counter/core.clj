@@ -123,18 +123,23 @@
   [data]
   (let [headings ["Language" "Blank" "Comment" "Code"]
         sorted-data (sort (fn [a b] (> (:code (second a)) (:code (second b)))) data)
-        values (for [[lang stats] sorted-data]
+        values (vec (for [[lang stats] sorted-data]
                  {"Language" (get *lang-names* lang)
                   "Blank" (get stats :blank)
                   "Code" (get stats :code)
-                  "Comment" (get stats :comment)})]
-    (print-table headings values)))
+                  "Comment" (get stats :comment)}))
+        values-with-sum (conj values
+                              {"Language" "SUM"
+                               "Blank" (reduce + (map #(get % "Blank") values))
+                               "Code" (reduce + (map #(get % "Code") values))
+                               "Comment" (reduce + (map #(get % "Comment") values))})]
+    (print-table headings values-with-sum)))
 
 (defn usage []
   (println "Usage: source-counter <path>"))
 
 (defn -main [& args]
-  (when (< 1 (count args))
+  (when (not= 1 (count args))
     (do (usage)
         (System/exit 0)))
   (print-loc-data (count-loc-in-dir (first args))))
