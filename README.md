@@ -5,13 +5,21 @@ the number of blank lines, comments and lines of code. Multi-line comments are n
 implented right now.
 
 Currently supported languages:
+
 C/C++
+
 Java
+
 Scala
+
 Clojure
+
 HTML
+
 Javascript
+
 Python
+
 Ruby
 
 ## Usage
