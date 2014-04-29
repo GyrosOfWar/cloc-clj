@@ -57,6 +57,12 @@
            (.isEmpty line) :blank
            :else :code)))
 
+(defn check-lua-line [l]
+  (let [line (.trim l)]
+    (cond  (.startsWith line "--") :comment
+           (.isEmpty line) :blank
+           :else :code)))
+
 (defn check-html-line [l]
   (let [line (.trim l)]
     (cond (.startsWith line "<!--") :comment
@@ -66,8 +72,8 @@
 (def ^:dynamic *lang-map*
   [[[".clj"] check-clojure-line]
    [[".html" ".htm"] check-html-line]
-   [[".scala" ".cs" ".c" ".cpp" ".java" ".h" ".hpp" ".js" ".php" ".rs" ".go"] check-c-ish-line]
-   [[".rb" ".py"] check-py-line]])
+   [[".scala" ".cs" ".c" ".cpp" ".java" ".h" ".hpp" ".js" ".php" ".rs" ".go" ".lua"] check-c-ish-line]
+   [[".rb" ".py" ".coffee"] check-py-line]])
 
 (def ^:dynamic *supported-languages*
   (reduce (fn [vec [exts _]] (into vec exts)) [] *lang-map*))
@@ -79,9 +85,11 @@
    ".cpp" "C++"
    ".hpp" "C++ Header"
    ".h" "C Header"
+   ".coffee" "Coffeescript"
    ".rb" "Ruby"
    ".rs" "Rust"
    ".go" "Go"
+   ".lua" "Lua"
    ".py" "Python"
    ".php" "PHP"
    ".cs" "C#"

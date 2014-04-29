@@ -13,6 +13,7 @@ Currently supported languages:
 * Clojure
 * HTML
 * Javascript
+* Coffeescript
 * Python
 * Ruby
 * Rust
