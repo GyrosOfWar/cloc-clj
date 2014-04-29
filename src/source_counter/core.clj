@@ -71,9 +71,10 @@
 
 (def ^:dynamic *lang-map*
   [[[".clj"] check-clojure-line]
+   [[".lua"] check-lua-line]
    [[".html" ".htm"] check-html-line]
-   [[".scala" ".cs" ".c" ".cpp" ".java" ".h" ".hpp" ".js" ".php" ".rs" ".go" ".lua"] check-c-ish-line]
-   [[".rb" ".py" ".coffee"] check-py-line]])
+   [[".rb" ".py" ".coffee"] check-py-line]
+   [[".scala" ".cs" ".c" ".cpp" ".java" ".h" ".hpp" ".js" ".php" ".rs" ".go"] check-c-ish-line]])
 
 (def ^:dynamic *supported-languages*
   (reduce (fn [vec [exts _]] (into vec exts)) [] *lang-map*))
