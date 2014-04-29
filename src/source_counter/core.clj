@@ -66,7 +66,7 @@
 (def ^:dynamic *lang-map*
   [[[".clj"] check-clojure-line]
    [[".html" ".htm"] check-html-line]
-   [[".scala" ".cs" ".c" ".cpp" ".java" ".h" ".hpp" ".js" ".php"] check-c-ish-line]
+   [[".scala" ".cs" ".c" ".cpp" ".java" ".h" ".hpp" ".js" ".php" ".rs" ".go"] check-c-ish-line]
    [[".rb" ".py"] check-py-line]])
 
 (def ^:dynamic *supported-languages*
@@ -80,6 +80,8 @@
    ".hpp" "C++ Header"
    ".h" "C Header"
    ".rb" "Ruby"
+   ".rs" "Rust"
+   ".go" "Go"
    ".py" "Python"
    ".php" "PHP"
    ".cs" "C#"

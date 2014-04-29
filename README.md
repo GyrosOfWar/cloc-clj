@@ -15,6 +15,8 @@ Currently supported languages:
 * Javascript
 * Python
 * Ruby
+* Rust
+* Go
 * PHP
 
 ## Usage
