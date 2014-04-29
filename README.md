@@ -13,8 +13,11 @@ Currently supported languages:
 * Clojure
 * HTML
 * Javascript
+* Coffeescript
 * Python
 * Ruby
+* Rust
+* Go
 * PHP
 
 ## Usage
